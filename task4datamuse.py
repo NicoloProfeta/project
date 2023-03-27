@@ -17,16 +17,17 @@ import streamlit as st
 # make the above URL more generic, so that it is easy to replace the keyword
 keyword=st.text_input('Please, insert a keyword ')
 option = st.selectbox('select a function', ('synonyms', 'antonyms', 'sounds like', 'means like'))
-if option = 'synonyms':
+if option == 'synonyms':
  key='rel_syn'
-elif option = 'antonyms':
+elif option == 'antonyms':
  key='rel_ant'
-elif option = 'sounds like':
+elif option == 'sounds like':
  key= 'sl'
-elif option = 'means like':
+elif option == 'means like':
  key= 'ml'
- 
-url= 'https://api.datamuse.com/words?'+key+'=' + keyword
+
+if (key and keyword):
+ url= 'https://api.datamuse.com/words?'+key+'=' + keyword
  
  
 
