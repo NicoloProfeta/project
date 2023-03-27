@@ -1,6 +1,7 @@
  #! python3
 import json,requests
 from pprint import pprint
+import streamlit as st
 
 ## Access a word-finding query engine
 ## See API at http://www.datamuse.com/api/
