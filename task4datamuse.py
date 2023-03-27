@@ -16,7 +16,7 @@ import streamlit as st
 #'https://api.datamuse.com/words?rel_rhy=funny'
 # make the above URL more generic, so that it is easy to replace the keyword
 keyword=st.text_input('Please, insert a keyword ')
-option = st.selectbox('select a function', ('synonyms, antonyms, sounds like, means like'))
+option = st.selectbox('select a function', ('synonyms', 'antonyms', 'sounds like', 'means like'))
 
 url= 'https://api.datamuse.com/words?rel_syn=' + keyword
 
