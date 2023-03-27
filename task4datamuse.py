@@ -26,22 +26,22 @@ elif option = 'sounds like':
 elif option = 'means like':
  key= 'ml'
  
- url= 'https://api.datamuse.com/words?'+key+'=' + keyword
+url= 'https://api.datamuse.com/words?'+key+'=' + keyword
  
  
 
 
 #Step3: Download the JSON data from the API.
- response = requests.get(url)   
+response = requests.get(url)   
 #Uncomment to see the raw JSON text:
 #print(response.text)  
 
 
 #Step4: Load JSON data into a Python variable and use it in your program.
- dataFromDatamuse = json.loads(response.text) 
+dataFromDatamuse = json.loads(response.text) 
 #Uncomment to see the raw JSON text loaded in a Python Variable:
 #print(dataFromDatamuse) 
 #Uncomment to see a better readable version:
- st.write(dataFromDatamuse)
+st.write(dataFromDatamuse)
 
- st.write('You selected:', option)
+st.write('You selected:', option)
