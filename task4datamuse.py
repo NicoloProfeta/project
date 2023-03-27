@@ -32,6 +32,6 @@ dataFromDatamuse = json.loads(response.text)
 #Uncomment to see the raw JSON text loaded in a Python Variable:
 #print(dataFromDatamuse) 
 #Uncomment to see a better readable version:
-pprint(dataFromDatamuse)
+st.write(dataFromDatamuse)
 
 st.write('You selected:', option)
