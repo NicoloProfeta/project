@@ -1,5 +1,5 @@
 from gtts import gTTS
-import IPython.display as ipd  
+
 from googletrans import Translator
 
 translator = Translator()
