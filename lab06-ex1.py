@@ -1,9 +1,9 @@
 from gtts import gTTS
-import IPython.audio as ipd  
+import IPython.display as ipd  
 from googletrans import Translator
 
 translator = Translator()
-word = st.texct_input('Type some text:')
+word = st.text_input('Type some text:')
 
 languageis = translator.translate(word, dest='ru') 
 
