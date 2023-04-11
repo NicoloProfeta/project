@@ -1,4 +1,4 @@
-import googletrans
+
 import json, requests
 from googletrans import Translator
 import streamlit as st
