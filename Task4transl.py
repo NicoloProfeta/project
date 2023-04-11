@@ -3,7 +3,7 @@ import json, requests
 from googletrans import Translator
 import streamlit as st
 
-language = st.selectbox('Please, select a destination language')
+language = st.selectbox('Please, select a destination language', ('it', 'de', 'en', 'ru'))
 keyword = st.text_input(' insert a  word')
 translator = Translator()
 
