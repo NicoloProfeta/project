@@ -15,7 +15,7 @@ url = "https://grammarbot-neural.p.rapidapi.com/v1/check" + Text + '&appid=' + A
 res = client.check(Text)
 
 if res:
-  st.write(res)
+  st.write(res.detected_language)
 
 
 
