@@ -14,6 +14,8 @@ url = "https://grammarbot-neural.p.rapidapi.com/v1/check" + Text + '&appid=' + A
 
 res = client.check(Text)
 
-st.write(res)
+if res:
+  st.write(res)
+
 
 
