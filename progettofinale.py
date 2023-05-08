@@ -1,6 +1,7 @@
+from grammarbot import GrammarBotClient
 import requests
 import json
-from grammarbot import GrammarBotClient
+
 
 import streamlit as st
 
