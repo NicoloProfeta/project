@@ -8,4 +8,4 @@ Text = st.text_input("Schreib deinen Text")
 url = "https://grammarbot-neural.p.rapidapi.com/v1/check" + Text + '&appid=' + APIkey
 print(url)
 
-res = client.check(text)
+res = Text.check(text)
