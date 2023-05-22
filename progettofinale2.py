@@ -1,15 +1,14 @@
-pip install grammar-check
 import streamlit as st
-import grammar_check
+import grammarbot
 from gtts import gTTS
 from io import BytesIO
 from IPython.display import Audio
 
 def revise_homework(text):
     # Use GrammarBot to correct orthography
-    tool = grammar_check.LanguageTool('en-US')
+    tool = grammarbot.LanguageTool('de-DE')
     matches = tool.check(text)
-    revised_text = grammar_check.correct(text, matches)
+    revised_text = grammarbot.correct(text, matches)
     return revised_text
 
 def generate_pronunciation(text):
@@ -20,7 +19,7 @@ def generate_pronunciation(text):
     return audio
 
 def main():
-    st.title("Homework Revision Program")
+    st.title("Homework Revision Program (German)")
     st.write("Please enter your text (500 characters or less):")
 
     # Create a text input box for the user to enter the text
