@@ -35,10 +35,14 @@ def main():
         st.write("\nRevised Homework:")
         st.write(revised_text)
 
-        if st.button("Hear Pronunciation"):
+    if st.button("Hear Pronunciation"):
+        if "revised_text" in locals():
             audio = generate_pronunciation(revised_text)
             audio_bytes = audio.read()
             st.audio(audio_bytes, format='audio/mp3')
+        else:
+            st.warning("Please revise the homework before hearing the pronunciation.")
 
 if __name__ == "__main__":
     main()
+
