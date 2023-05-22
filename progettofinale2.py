@@ -2,7 +2,7 @@ import streamlit as st
 import grammarbot
 from gtts import gTTS
 from io import BytesIO
-from IPython.display import Audio
+import base64
 
 def revise_homework(text):
     # Use GrammarBot to correct orthography
@@ -37,7 +37,8 @@ def main():
 
         if st.button("Hear Pronunciation"):
             audio = generate_pronunciation(revised_text)
-            st.audio(audio)
+            audio_bytes = audio.read()
+            st.audio(audio_bytes, format='audio/mp3')
 
 if __name__ == "__main__":
     main()
