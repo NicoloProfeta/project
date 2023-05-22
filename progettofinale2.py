@@ -1,8 +1,5 @@
 import streamlit as st
 import grammarbot
-from gtts import gTTS
-from io import BytesIO
-from IPython.display import Audio
 
 def revise_homework(text):
     # Use GrammarBot to correct orthography
@@ -10,13 +7,6 @@ def revise_homework(text):
     matches = tool.check(text)
     revised_text = grammarbot.correct(text, matches)
     return revised_text
-
-def generate_pronunciation(text):
-    # Generate pronunciation audio using gTTS
-    tts = gTTS(text, lang='de')
-    audio = BytesIO()
-    tts.save(audio)
-    return audio
 
 def main():
     st.title("Homework Revision Program (German)")
@@ -34,10 +24,6 @@ def main():
         revised_text = revise_homework(text)
         st.write("\nRevised Homework:")
         st.write(revised_text)
-
-        if st.button("Hear Pronunciation"):
-            audio = generate_pronunciation(revised_text)
-            st.audio(audio)
 
 if __name__ == "__main__":
     main()
