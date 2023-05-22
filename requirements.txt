@@ -1,4 +1,4 @@
-#grammar-check
+grammar_check
 requests
 grammarbot
 gTTS
