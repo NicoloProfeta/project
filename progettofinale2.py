@@ -19,15 +19,15 @@ def generate_pronunciation(text):
     return audio
 
 def main():
-    st.title("Homework Revision Program (German)")
-    st.write("Please enter your text (500 characters or less):")
+    st.title("Peer Review - DEUTSCH")
+    st.write("Schreib bitte deinen Text (500 Wörter oder weniger):")
 
     # Create a text input box for the user to enter the text
-    text = st.text_area("Enter your text", height=200)
+    text = st.text_area("Tipp deinen Text", height=200)
 
     # Check if text exceeds the length limit
     if len(text) > 500:
-        st.error("Text exceeds the length limit of 500 characters. Please try again.")
+        st.error("Dein Text ist zu lang! Versuch es noch einmal!")
         return
 
     if st.button("Revise Homework"):
@@ -35,13 +35,13 @@ def main():
         st.write("\nRevised Homework:")
         st.write(revised_text)
 
-    if st.button("Hear Pronunciation"):
+    if st.button("Hör die richtige Aussprache!"):
         if "revised_text" in locals():
             audio = generate_pronunciation(revised_text)
             audio_bytes = audio.read()
             st.audio(audio_bytes, format='audio/mp3')
         else:
-            st.warning("Please revise the homework before hearing the pronunciation.")
+            st.warning("Überprüfe bitte deinen Text vorm Hören!.")
 
 if __name__ == "__main__":
     main()
