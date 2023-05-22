@@ -1,3 +1,4 @@
+pip install grammar-check
 import streamlit as st
 import grammar_check
 from gtts import gTTS
