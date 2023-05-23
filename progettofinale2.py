@@ -1,14 +1,13 @@
 import streamlit as st
-import grammarbot
+import grammarbot_api
 from gtts import gTTS
 from io import BytesIO
-import base64
 
 def revise_homework(text):
-    # Use GrammarBot to correct orthography
-    tool = grammarbot.LanguageTool('de-DE')
-    matches = tool.check(text)
-    revised_text = grammarbot.correct(text, matches)
+    # Use GrammarBot API to correct orthography
+    bot = grammarbot_api.GrammarBotAPI()
+    response = bot.check(text, 'de-DE')
+    revised_text = response['result']
     return revised_text
 
 def generate_pronunciation(text):
@@ -19,15 +18,15 @@ def generate_pronunciation(text):
     return audio
 
 def main():
-    st.title("Peer Review - DEUTSCH")
-    st.write("Schreib bitte deinen Text (500 Wörter oder weniger):")
+    st.title("Homework Revision Program (German)")
+    st.write("Please enter your text (500 characters or less):")
 
     # Create a text input box for the user to enter the text
-    text = st.text_area("Tipp deinen Text", height=200)
+    text = st.text_area("Enter your text", height=200)
 
     # Check if text exceeds the length limit
     if len(text) > 500:
-        st.error("Dein Text ist zu lang! Versuch es noch einmal!")
+        st.error("Text exceeds the length limit of 500 characters. Please try again.")
         return
 
     if st.button("Revise Homework"):
@@ -35,14 +34,12 @@ def main():
         st.write("\nRevised Homework:")
         st.write(revised_text)
 
-    if st.button("Hör die richtige Aussprache!"):
+    if st.button("Hear Pronunciation"):
         if "revised_text" in locals():
             audio = generate_pronunciation(revised_text)
-            audio_bytes = audio.read()
-            st.audio(audio_bytes, format='audio/mp3')
+            st.audio(audio.read(), format='audio/mp3')
         else:
-            st.warning("Überprüfe bitte deinen Text vorm Hören!.")
+            st.warning("Please revise the homework before hearing the pronunciation.")
 
 if __name__ == "__main__":
     main()
-
