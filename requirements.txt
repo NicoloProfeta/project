@@ -1,6 +1,5 @@
 #grammar_check
 requests
 grammarbot
-grammarbot_api
 gTTS
 #googletrans==4.0.0-rc1
