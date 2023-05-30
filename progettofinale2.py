@@ -1,13 +1,13 @@
 import streamlit as st
-import grammarbot
+import language_tool_python
 from gtts import gTTS
 from io import BytesIO
 
 def revise_homework(text):
-    # Use GrammarBot to correct orthography
-    tool = grammarbot.LanguageTool('de-DE')
+    # Use LanguageTool to correct orthography
+    tool = language_tool_python.LanguageTool('de-DE')
     matches = tool.check(text)
-    revised_text = grammarbot.correct(text, matches)
+    revised_text = language_tool_python.correct(text, matches)
     return revised_text
 
 def generate_pronunciation(text):
