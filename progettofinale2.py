@@ -2,12 +2,12 @@ import streamlit as st
 import language_tool_python
 from gtts import gTTS
 from io import BytesIO
+import spacy
 
 def revise_homework(text):
-    # Use LanguageTool to correct orthography
-    tool = language_tool_python.LanguageTool('de-DE')
-    matches = tool.check(text)
-    revised_text = language_tool_python.correct(text, matches)
+    nlp = spacy.load("de_core_news_sm")
+    doc = nlp(text)
+    revised_text = " ".join(token.text for token in doc)
     return revised_text
 
 def generate_pronunciation(text):
