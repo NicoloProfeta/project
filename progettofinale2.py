@@ -1,7 +1,7 @@
 import streamlit as st
 from gingerit.gingerit import GingerIt
 import pyttsx3
-import language_tool
+import language_tool_python
 
 def correct_german_text(text):
     #parser = GingerIt()
