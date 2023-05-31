@@ -2,6 +2,7 @@ import streamlit as st
 from gingerit.gingerit import GingerIt
 import pyttsx3
 import language_tool_python
+from gtts import gTTS
 
 def correct_german_text(text):
     #parser = GingerIt()
@@ -11,13 +12,17 @@ def correct_german_text(text):
     return tool.correct(text)
     
 
-def speak_german_text(text):
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 150)
-    engine.setProperty('voice', 'german')
+def speak_german_text(mytext):
+    tts1=gTTS(text=mytext, lang="de")
+    tts1.save('file.mp3')
+    audio_file = open("file.mp3", "rb")
+    st.audio(data=audio_file, format="audio/mp3", start_time=0)
+    #engine = pyttsx3.init()
+    #engine.setProperty('rate', 150)
+    #engine.setProperty('voice', 'german')
     #engine.say(text)
-    engine.say("Der Tisch ist gelb")
-    engine.runAndWait()
+    #engine.say("Der Tisch ist gelb")
+    #engine.runAndWait()
 
 def main():
     st.title("Deutscher Textkorrektor")
