@@ -1,5 +1,7 @@
 import streamlit as st
-import subprocess
+from gingerit.gingerit import GingerIt
+
+import streamlit as st
 from gingerit.gingerit import GingerIt
 
 def correct_german_text(text):
@@ -8,7 +10,7 @@ def correct_german_text(text):
     return corrected
 
 def speak_german_text(text):
-    subprocess.run(["say", "-v", "German", text])
+    st.text(text)
 
 def main():
     st.title("Deutscher Textkorrektor")
