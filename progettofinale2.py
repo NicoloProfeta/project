@@ -1,11 +1,15 @@
 import streamlit as st
 from gingerit.gingerit import GingerIt
 import pyttsx3
+import language_tool
 
 def correct_german_text(text):
-    parser = GingerIt()
-    corrected = parser.parse(text)['result']
-    return corrected
+    #parser = GingerIt()
+    #corrected = parser.parse(text)['result']
+    #return corrected
+    language_tool_python.LanguageToolPublicAPI('de')
+    return tool.correct(text)
+    
 
 def speak_german_text(text):
     engine = pyttsx3.init()
