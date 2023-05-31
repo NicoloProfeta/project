@@ -1,9 +1,6 @@
 import streamlit as st
 from gingerit.gingerit import GingerIt
 
-import streamlit as st
-from gingerit.gingerit import GingerIt
-
 def correct_german_text(text):
     parser = GingerIt()
     corrected = parser.parse(text)['result']
