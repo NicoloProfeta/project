@@ -1,44 +1,33 @@
 import streamlit as st
-from gtts import gTTS
-from io import BytesIO
-import spacy
+import pyttsx3
+from gingerit.gingerit import GingerIt
 
-def revise_homework(text):
-    nlp = spacy.load("de_core_news_sm")
-    doc = nlp(text)
-    revised_text = " ".join(token.text for token in doc)
-    return revised_text
+def correct_german_text(text):
+    parser = GingerIt()
+    corrected = parser.parse(text)['result']
+    return corrected
 
-def generate_pronunciation(text):
-    # Generate pronunciation audio using gTTS
-    tts = gTTS(text, lang='de')
-    audio = BytesIO()
-    tts.save(audio)
-    return audio
+def speak_german_text(text):
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 150)
+    engine.setProperty('voice', 'german')
+    engine.say(text)
+    engine.runAndWait()
 
 def main():
-    st.title("Homework Revision Program (German)")
-    st.write("Please enter your text (500 characters or less):")
-
-    # Create a text input box for the user to enter the text
-    text = st.text_area("Enter your text", height=200)
-
-    # Check if text exceeds the length limit
-    if len(text) > 500:
-        st.error("Text exceeds the length limit of 500 characters. Please try again.")
-        return
-
-    if st.button("Revise Homework"):
-        revised_text = revise_homework(text)
-        st.write("\nRevised Homework:")
-        st.write(revised_text)
-
-    if st.button("Hear Pronunciation"):
-        if "revised_text" in locals():
-            audio = generate_pronunciation(revised_text)
-            st.audio(audio.read(), format='audio/mp3')
-        else:
-            st.warning("Please revise the homework before hearing the pronunciation.")
+    st.title("Deutscher Textkorrektor")
+    user_input = st.text_area("Geben Sie Ihren Text auf Deutsch ein:", max_chars=500)
+    
+    if st.button("Korrektur durchführen"):
+        if len(user_input) > 0:
+            if len(user_input) > 500:
+                st.error("Der Text darf maximal 500 Zeichen lang sein.")
+            else:
+                corrected_text = correct_german_text(user_input)
+                st.success("Korrigierter Text:")
+                st.write(corrected_text)
+                st.subheader("Hören Sie sich die richtige deutsche Aussprache an:")
+                speak_german_text(corrected_text)
 
 if __name__ == "__main__":
     main()
