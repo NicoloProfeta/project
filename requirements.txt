@@ -1,6 +1,7 @@
 #grammar_check
 requests
-spacy
+GingerIt
+pyttsx3
 #language_tool_python
 #grammarbot
 gTTS
