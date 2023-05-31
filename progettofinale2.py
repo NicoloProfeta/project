@@ -13,7 +13,7 @@ def correct_german_text(text):
     
 
 def speak_german_text(mytext):
-    tts1=gTTS(text="Der Tisch ist neu", lang="de")
+    tts1=gTTS(text="Der Tisch ist neu", lang="de-DE")
     tts1.save('file.mp3')
     audio_file = open("file.mp3", "rb")
     st.audio(data=audio_file, format="audio/mp3", start_time=0)
