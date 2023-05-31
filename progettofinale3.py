@@ -2,8 +2,6 @@ import streamlit as st
 import language_tool_python
 from gtts import gTTS
 
- 
-
 def correct_german_text(text):
   tool = language_tool_python.LanguageToolPublicAPI('de-DE')
   return tool.correct(text)
@@ -15,13 +13,9 @@ def speak_german_text(mytext):
   return audio_file
   #st.audio(data=audio_file, format="audio/mp3", start_time=0)
 
- 
-
 def main():
   st.title("Deutscher Textkorrektor")
   user_input = st.text_area("Geben Sie Ihren Text auf Deutsch ein:", max_chars=500)
-
- 
 
   if st.button("Korrektur durchführen"):
     if len(user_input) > 0:
@@ -33,8 +27,6 @@ def main():
         st.write(corrected_text)
         st.subheader("Hören Sie sich die richtige deutsche Aussprache an:")
         st.audio(data=speak_german_text(corrected_text), format="audio/mp3", start_time=0)
-
- 
 
 if __name__ == "__main__":
   main()
