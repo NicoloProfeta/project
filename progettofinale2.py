@@ -1,5 +1,5 @@
 import streamlit as st
-import pyttsx3
+import subprocess
 from gingerit.gingerit import GingerIt
 
 def correct_german_text(text):
@@ -8,11 +8,7 @@ def correct_german_text(text):
     return corrected
 
 def speak_german_text(text):
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 150)
-    engine.setProperty('voice', 'german')
-    engine.say(text)
-    engine.runAndWait()
+    subprocess.run(["say", "-v", "German", text])
 
 def main():
     st.title("Deutscher Textkorrektor")
