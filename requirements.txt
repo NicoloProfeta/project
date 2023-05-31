@@ -2,7 +2,7 @@
 requests
 GingerIt
 pyttsx3
-#language_tool_python
+language_tool_python
 #grammarbot
 #gTTS
 #googletrans==4.0.0-rc1
