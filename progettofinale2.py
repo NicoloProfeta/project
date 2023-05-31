@@ -7,7 +7,7 @@ def correct_german_text(text):
     #parser = GingerIt()
     #corrected = parser.parse(text)['result']
     #return corrected
-    tool = language_tool_python.LanguageToolPublicAPI('de')
+    tool = language_tool_python.LanguageToolPublicAPI('en-US')
     return tool.correct(text)
     
 
