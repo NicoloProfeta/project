@@ -1,8 +1,7 @@
 #grammar_check
 requests
 GingerIt
-subprocess
-pyttsx3
+#pyttsx3
 #language_tool_python
 #grammarbot
 gTTS
