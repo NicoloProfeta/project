@@ -1,5 +1,4 @@
 import streamlit as st
-import language_tool_python
 from gtts import gTTS
 from io import BytesIO
 import spacy
