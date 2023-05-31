@@ -15,7 +15,8 @@ def speak_german_text(text):
     engine = pyttsx3.init()
     engine.setProperty('rate', 150)
     engine.setProperty('voice', 'german')
-    engine.say(text)
+    #engine.say(text)
+    engine.say("Der Tisch ist gelb")
     engine.runAndWait()
 
 def main():
