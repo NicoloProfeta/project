@@ -13,18 +13,18 @@ def speak_german_text(mytext):
   return audio_file
 
 def main():
-  st.title("Deutscher Textkorrektor")
-  user_input = st.text_area("Geben Sie Ihren Text auf Deutsch ein:", max_chars=500)
+  st.title("DeutschCoach")
+  user_input = st.text_area("Schreib deinen Text hier:", max_chars=500)
 
-  if st.button("Korrektur durchführen"):
+  if st.button("Los geht's!"):
     if len(user_input) > 0:
       if len(user_input) > 500:
-        st.error("Der Text darf maximal 500 Zeichen lang sein.")
+        st.error("Der Text darf maximal 500 Zeichen lang sein!!")
       else:
         corrected_text = correct_german_text(user_input)
-        st.success("Korrigierter Text:")
+        st.success("Hier findest du deinen korrigierten Text:")
         st.write(corrected_text)
-        st.subheader("Hören Sie sich die richtige deutsche Aussprache an:")
+        st.subheader("Klick mal hier, um die richtige Aussprache anzuhören!")
         st.audio(data=speak_german_text(corrected_text), format="audio/mp3", start_time=0)
 
 if __name__ == "__main__":
