@@ -24,7 +24,7 @@ def main():
         corrected_text = correct_german_text(user_input)
         st.success("Hier findest du deinen korrigierten Text:")
         st.write(corrected_text)
-        st.subheader("Klick mal hier, um die richtige Aussprache anzuhören!")
+        st.subheader("Klick mal hier unten, um die richtige Aussprache anzuhören!")
         st.audio(data=speak_german_text(corrected_text), format="audio/mp3", start_time=0)
 
 if __name__ == "__main__":
