@@ -17,7 +17,7 @@ def main():
   user_input = st.text_area("Schreib deinen Text hier:", max_chars=500)
 
   if st.button("Los geht's!"):
-    #if len(user_input) > 0:
+    if len(user_input) > 0:
       if len(user_input) > 500:
         st.error("Der Text darf maximal 500 Zeichen lang sein!!")
       else:
